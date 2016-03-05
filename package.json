@@ -7,7 +7,6 @@
     "url": "https://github.com/alancnet/masterless-msgpack/issues"
   },
   "dependencies": {
-    "chunk-by": "^0.1.1",
     "debug": "~1.0.2",
     "msgpack": "^1.0.2"
   },
@@ -15,10 +14,6 @@
   "devDependencies": {
     "chai": "~1.9.1",
     "mocha": "~1.18.2"
-  },
-  "directories": {},
-  "engines": {
-    "node": "*"
   },
   "homepage": "https://github.com/alancnet/masterless-msgpack",
   "keywords": [
@@ -46,8 +41,6 @@
     }
   ],
   "name": "masterless-msgpack",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alancnet/masterless-msgpack.git"
@@ -55,5 +48,5 @@
   "scripts": {
     "test": "mocha -t 200"
   },
-  "version": "0.4.1"
+  "version": "0.5.0"
 }
