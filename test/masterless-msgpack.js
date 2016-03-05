@@ -3,6 +3,16 @@ var crypto = require('crypto');
 
 var Emitter = require('events').EventEmitter;
 
+function debug(name) {
+    return function() {
+        var sb = [];
+        for (var i = 0; i < arguments.length; i++) {
+            sb.push(arguments[i]);
+        }
+//        console.info(name, sb.join(' ') );
+    }
+}
+
 function uid() {
   return crypto.randomBytes(16).toString('hex');
 }
@@ -79,8 +89,8 @@ describe('server', function() {
   it('should support duplex data', function(done) {
     var a = uid(), b = uid();
 
-    var left = new Server(a, {host: 'localhost'});
-    var right = new Server(b, {host: 'localhost'});
+    var left = new Server(a, {host: 'localhost', debug: debug('duplex left') });
+    var right = new Server(b, {host: 'localhost', debug: debug('duplex right')});
 
     afterAll('listening', left, right, function() {
       right.connect(left.info());
@@ -110,9 +120,9 @@ describe('server', function() {
   it('should support multicast data', function(done) {
     var a = uid(), b = uid(), c = uid();
 
-    var top = new Server(a, {host: 'localhost'});
-    var mid = new Server(b, {host: 'localhost'});
-    var bot = new Server(c, {host: 'localhost'});
+    var top = new Server(a, {host: 'localhost', debug: debug('multicast top')});
+    var mid = new Server(b, {host: 'localhost', debug: debug('multicast mid')});
+    var bot = new Server(c, {host: 'localhost', debug: debug('multicast bot')});
 
     afterAll('listening', top, mid, bot, function() {
       mid.connect(top.info());
@@ -151,8 +161,8 @@ describe('server', function() {
   it('should support renegotiation', function(done) {
     var a = uid(), b = uid();
 
-    var left = new Server(a, {host: 'localhost'});
-    var right = new Server(b, {host: 'localhost'});
+    var left = new Server(a, {host: 'localhost', debug: debug('renegotiate left')});
+    var right = new Server(b, {host: 'localhost', debug: debug('renegotiate right')});
 
     var CYCLES = 10;
 
@@ -177,8 +187,8 @@ describe('server', function() {
   it('should deduplicate many connections', function(done) {
     var a = uid(), b = uid();
 
-    var left = new Server(a, {host: 'localhost'});
-    var right = new Server(b, {host: 'localhost'});
+    var left = new Server(a, {host: 'localhost', debug: debug('dedupe left')});
+    var right = new Server(b, {host: 'localhost', debug: debug('dedupe right')});
 
     var CYCLES = 10;
 
@@ -215,8 +225,8 @@ describe('server', function() {
   it('should automatically reconnect', function(done) {
     var a = uid(), b = uid();
 
-    var left = new Server(a, {host: 'localhost'});
-    var right = new Server(b, {host: 'localhost'});
+    var left = new Server(a, {host: 'localhost', debug: debug('reconnect left')});
+    var right = new Server(b, {host: 'localhost', debug: debug('reconnect right')});
 
     afterAll('listening', left, right, function() {
       right.connect(left.info());
@@ -254,8 +264,8 @@ describe('server', function() {
   it('should reliably reconnect', function(done) {
     var a = uid(), b = uid();
 
-    var left = new Server(a, {host: 'localhost'});
-    var right = new Server(b, {host: 'localhost'});
+    var left = new Server(a, {host: 'localhost', debug: debug('reliable: left')});
+    var right = new Server(b, {host: 'localhost', debug: debug('reliable: right')});
 
     var connectStart = Date.now();
 
@@ -283,8 +293,8 @@ describe('server', function() {
   it('should discard unwanted connections', function(done) {
     var a = uid(), b = uid();
 
-    var left = new Server(a, {host: 'localhost'});
-    var right = new Server(b, {host: 'localhost'});
+    var left = new Server(a, {host: 'localhost', debug: debug('unwanted left')});
+    var right = new Server(b, {host: 'localhost', debug: debug('unwanted right')});
 
     var discard = false;
 
@@ -316,8 +326,8 @@ describe('server', function() {
   it('should detect disconnected nodes', function(done) {
     var a = uid(), b = uid();
 
-    var left = new Server(a, {host: 'localhost'});
-    var right = new Server(b, {host: 'localhost'});
+    var left = new Server(a, {host: 'localhost', debug: debug('detect left')});
+    var right = new Server(b, {host: 'localhost', debug: debug('detect right')});
 
     afterAll('listening', left, right, function() {
       right.connect(left.info());
