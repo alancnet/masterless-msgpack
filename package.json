@@ -1,0 +1,95 @@
+{
+  "_args": [
+    [
+      "masterless",
+      "/home/alco/git/hive-mind"
+    ]
+  ],
+  "_from": "masterless@latest",
+  "_id": "masterless@0.4.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/masterless",
+  "_npmUser": {
+    "email": "skeggse@gmail.com",
+    "name": "skeggse"
+  },
+  "_npmVersion": "1.4.14",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "masterless",
+    "raw": "masterless",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/masterless/-/masterless-0.4.1.tgz",
+  "_shasum": "22c9ea42320462c431a72fc1068f7a31f6916272",
+  "_shrinkwrap": null,
+  "_spec": "masterless",
+  "_where": "/home/alco/git/hive-mind",
+  "author": {
+    "email": "eskeggs@globesherpa.com",
+    "name": "Eli Skeggs"
+  },
+  "bugs": {
+    "url": "https://github.com/globesherpa/masterless/issues"
+  },
+  "dependencies": {
+    "chunk-by": "^0.1.1",
+    "debug": "~1.0.2"
+  },
+  "description": "a duplex server with mesh network edge deduplication",
+  "devDependencies": {
+    "chai": "~1.9.1",
+    "mocha": "~1.18.2"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "22c9ea42320462c431a72fc1068f7a31f6916272",
+    "tarball": "http://registry.npmjs.org/masterless/-/masterless-0.4.1.tgz"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "gitHead": "2efefdab74d4339c6ee1405bcacb6f8bf810f44f",
+  "homepage": "https://github.com/globesherpa/masterless",
+  "keywords": [
+    "distribute",
+    "distributed",
+    "masterless",
+    "mesh",
+    "messaging",
+    "network",
+    "server",
+    "tcp"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/globesherpa/masterless/blob/master/LICENSE"
+    }
+  ],
+  "main": "./lib/masterless",
+  "maintainers": [
+    {
+      "name": "skeggse",
+      "email": "skeggse@gmail.com"
+    }
+  ],
+  "name": "masterless",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/globesherpa/masterless.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "version": "0.4.1"
+}
