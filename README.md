@@ -4,6 +4,7 @@ masterless
 [![Build Status](https://travis-ci.org/alancnet/masterless-msgpack.png)](https://travis-ci.org/alancnet/masterless-msgpack)
 
 A fancy tcp client and server that acts as neither, and abstracts out connection deduplication between identical nodes.
+Uses [msgpack][] for serialization.
 
 Install
 =======
@@ -182,3 +183,4 @@ License
 > The MIT License (MIT)
 
 [examples]: https://github.com/alancnet/masterless-msgpack/tree/master/examples "Examples"
+[msgpack]: http://msgpack.org/ "MessagePack"
